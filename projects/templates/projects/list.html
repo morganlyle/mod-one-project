@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <main>
+      {%for x in projects%}
+      <div>
+        <table>
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Number of tasks</th>
+          </tr>
+        </hrad>
+        </table>
+      </div>
+      {%empty %}
+      <div>
+        <h1>My Projects</h1>
+        <p>You are not assigned to any projects.</p>
+      </div>
+      {%endfor%}
+    </main>
+  </body>
+</html>
