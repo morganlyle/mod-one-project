@@ -9,7 +9,7 @@
 
   <body>
     <main>
-      {%if projects_list%}
+      {%for x in projects%}
       <div>
         <table>
           <thead>
@@ -20,12 +20,12 @@
           </thead>
         </table>
       </div>
-      {%else %}
+      {%empty %}
       <div>
         <h1>My Projects</h1>
         <p>You are not assigned to any projects.</p>
       </div>
-      {%endif%}
+      {%endfor%}
     </main>
   </body>
 </html>
