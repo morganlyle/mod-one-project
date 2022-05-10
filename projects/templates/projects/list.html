@@ -1,31 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tracker</title>
-  </head>
+{%extends 'base.html'%}{%block content%}
 
-  <body>
-    <main>
-      {%for x in projects%}
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Number of tasks</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      {%empty %}
-      <div>
-        <h1>My Projects</h1>
-        <p>You are not assigned to any projects.</p>
-      </div>
-      {%endfor%}
-    </main>
-  </body>
-</html>
+<main>
+  <h1>My Projects</h1>
+  <div>
+    <p>
+      <a href="{% url 'create_project'%}">Create a new project</a>
+    </p>
+  </div>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Number of tasks</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for project in project_list%}
+        <a href="{% url 'show_project' project.pk%}">{{project.name}}</a>
+        <tr>
+          <td></td>
+          <td>{{project.tasks.all|length}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  {%empty %}
+  <div>
+    <p>You are not assigned to any projects.</p>
+  </div>
+  {%endfor%}
+</main>
+{%endblock content%}
