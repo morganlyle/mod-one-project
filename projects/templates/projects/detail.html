@@ -16,13 +16,13 @@
       </tr>
     </thead>
     <tbody>
-      {%for task in projects.task.all%}
+      {%for tasks in project.tasks.all%}
       <tr>
-        <td>{{task.name}}</td>
-        <td>{{task.assignee}}</td>
-        <td>{{task.start_date}}</td>
-        <td>{{task.due_date}}</td>
-        <td>{{task.is_completed}}</td>
+        <td>{{tasks.name}}</td>
+        <td>{{tasks.assignee}}</td>
+        <td>{{tasks.start_date}}</td>
+        <td>{{tasks.due_date}}</td>
+        <td>{{tasks.is_completed}}</td>
       </tr>
     </tbody>
   </table>
