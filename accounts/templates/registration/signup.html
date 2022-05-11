@@ -3,7 +3,7 @@
 <div>
   <h1>Signup</h1>
 
-  <form method="post"><input type="text", name="Submit"></input>
+  <form method="post">
     {% csrf_token %} {{form.as_p}}
     <button>Signup</button>
   </form>
