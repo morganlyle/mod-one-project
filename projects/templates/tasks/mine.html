@@ -1,0 +1,30 @@
+{%extends 'base.html'%} {%block content%}
+<div>
+  <h1>My Tasks</h1>
+  {%for task in tasks %}
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Is Completed</th>
+    </tr>
+    <tbody>
+      {%for mine in tasks %}
+      <tr>
+        <td>{{mine.name}}</td>
+        <td>{{mine.start_date}}</td>
+        <td>{{mine.due_date}}</td>
+        <td>{{mine.is_completed}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+    {%if task is is_completed%}
+    <p>Done</p>
+    {%endif%} {%empty%}
+
+    <p>You have no tasks</p>
+  </table>
+  {%endfor%}
+</div>
+{%endblock%}
