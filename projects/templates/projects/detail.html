@@ -1,33 +1,33 @@
 {%extends 'base.html'%} {%block content%} {% load markdownify %}
 
-<div>
-  <h1>{{project.name}}</h1>
-  {{ project.description|markdownify }}
-  <h2>Tasks</h2>
-  <a href="{% url 'create_task' %}">Create new task</a>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Assignee</th>
-        <th>Start date</th>
-        <th>Due date</th>
-        <th>Is completed</th>
-      </tr>
-    </thead>
-    <tbody>
-      {%for tasks in project.tasks.all%}
-      <tr>
-        <td>{{tasks.name}}</td>
-        <td>{{tasks.assignee}}</td>
-        <td>{{tasks.start_date}}</td>
-        <td>{{tasks.due_date}}</td>
-        <td>{{tasks.is_completed}}</td>
-      </tr>
-    </tbody>
-  </table>
-  {%empty%}
-  <p>This project has no tasks</p>
-  {%endfor%}
-</div>
+    <div>
+        <h1>{{project.name}}</h1>
+        {{ project.description|markdownify }}
+        <h2>Tasks</h2>
+        <a href="{% url 'create_task' %}">Create new task</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Assignee</th>
+                    <th>Start date</th>
+                    <th>Due date</th>
+                    <th>Is completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for tasks in project.tasks.all%}
+                    <tr>
+                        <td>{{tasks.name}}</td>
+                        <td>{{tasks.assignee}}</td>
+                        <td>{{tasks.start_date}}</td>
+                        <td>{{tasks.due_date}}</td>
+                        <td>{{tasks.is_completed}}</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                {%empty%}
+                    <p>This project has no tasks</p>
+                {%endfor%}
+            </div>
 {%endblock content%}

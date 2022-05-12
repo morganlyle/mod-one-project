@@ -1,34 +1,34 @@
 {%extends 'base.html'%}{%block content%}
 
-<main>
-  <h1>My Projects</h1>
-  <div>
-    <p>
-      <a href="{% url 'create_project'%}">Create a new project</a>
-    </p>
-  </div>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Number of tasks</th>
-        </tr>
-      </thead>
-      <tbody>
-        {%for project in project_list%}
-        <a href="{% url 'show_project' project.pk%}">{{project.name}}</a>
-        <tr>
-          <td>{{project.name}}</td>
-          <td>{{project.tasks.all|length}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  {%empty %}
-  <div>
-    <p>You are not assigned to any projects.</p>
-  </div>
-  {%endfor%}
-</main>
+    <main>
+        <h1>My Projects</h1>
+        <div>
+            <p>
+                <a href="{% url 'create_project'%}">Create a new project</a>
+            </p>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number of tasks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for project in project_list%}
+                        <a href="{% url 'show_project' project.pk%}">{{project.name}}</a>
+                        <tr>
+                            <td>{{project.name}}</td>
+                            <td>{{project.tasks.all|length}}</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                        </div>
+                    {%empty %}
+                        <div>
+                            <p>You are not assigned to any projects.</p>
+                        </div>
+                    {%endfor%}
+                </main>
 {%endblock content%}

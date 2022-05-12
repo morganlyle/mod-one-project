@@ -2,7 +2,7 @@
 
 <div>
   <h1>My Tasks</h1>
-  {% if task_list|length == 0 %}
+  {% if task_list|length == 0%}
   <p>You have no tasks</p>
   {% else %}
   <table>
@@ -22,15 +22,17 @@
         <td>{{ mine.end_date }}</td>
         <td>
           {% if is_completed|length == 0 %}
+
           <form method="post" action="{% url 'complete_task' mine.pk %}">
             {% csrf_token %}
             <input type="hidden" name="is_completed" value="True" />
             <button>Complete</button>
+            {%else%} {{mine.is_completed}}
           </form>
-          {{ mine.is_completed }} {% else %} {{ mine.is_completed }} {%endif%}
+          {%endif%}
         </td>
       </tr>
-      {% endfor %}
+      {%endfor%}
     </tbody>
   </table>
   {% endif %}
