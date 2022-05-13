@@ -21,7 +21,7 @@
         <td>{{ mine.start_date }}</td>
         <td>{{ mine.end_date }}</td>
         <td>
-          {% if is_completed|length == 0 %}
+          {% if not mine.is_completed %}
 
           <form method="post" action="{% url 'complete_task' mine.pk %}">
             {% csrf_token %}
